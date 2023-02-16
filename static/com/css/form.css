@@ -1,0 +1,77 @@
+form {
+    width: 600px;
+    margin: auto;
+
+}
+
+label {
+    float: left;
+    margin-right: 10px;
+    margin-top: 10px;
+    text-align: right;
+    width: 230px;
+    vertical-align: middle;
+}
+
+input {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    height: 25px;
+    display: block;
+    margin-top: 10px;
+    width: 200px;
+    vertical-align: middle;
+}
+
+select {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    height: 25px;
+    display: block;
+    margin-top: 10px;
+    width: 200px;
+    vertical-align: middle;
+}
+
+
+
+
+
+/*a  upload */
+.a-upload {
+    padding: 4px 10px;
+    height: 20px;
+    line-height: 20px;
+    position: relative;
+    cursor: pointer;
+    color: #888;
+    background: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1
+}
+
+.a-upload input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer
+}
+
+.a-upload:hover {
+    color: #444;
+    background: #eee;
+    border-color: #ccc;
+    text-decoration: none
+}
+
+a {
+    text-decoration: none;
+    color: #444;
+}

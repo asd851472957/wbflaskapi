@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/css/jquery.dataTables.css">
+<link rel="stylesheet" type="text/css" href="/static/css/jquery.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="/static/css/buttons.dataTables.min.css">
+<script type="text/javascript" language="javascript" src="/static/jQuery-3.3.1/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" language="javascript" src="/static/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" language="javascript" src="/static/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" language="javascript" src="/static/js/jszip.min.js"></script>
+<script type="text/javascript" language="javascript" src="/static/js/buttons.html5.min.js"></script>
+<link rel="stylesheet" href="/static/com/css/table.css">
+    <link rel="stylesheet" href="/static/com/css/com.css">
+    <meta charset="UTF-8">
+    <title>查询</title>
+
+
+</head>
+<body>
+    <form action="/index" method="post" id="child_form" class="form" autocomplete="off" enctype="multipart/form-data" name = "name">
+
+    <textarea name="sku" id="" cols="30" rows="20"></textarea>
+        <button>提交</button>
+
+
+        <table id="tables"  class="bordered">
+        <thead>
+        <tr class="first_line">
+            {% for i in biaoti %}
+            <td>{{ i }}</td>
+        {% endfor %}
+
+        </tr>
+        </thead>
+
+            <tbody>
+        {% for line in chika %}
+            <tr>
+                {% for key,value in line.items() %}
+                        <td>{{ value }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+            </tbody>
+
+
+    </table>
+
+
+        </form>
+</body>
+<script>
+      $(document).ready(function() {
+           $('#tables').DataTable({
+                    "paging":   false,
+                   dom: 'Bfrtip',
+                   buttons: [{
+                       extend: 'excelHtml5',
+                       text: '导出excel',
+                       filename:"{{ title }}",
+                       title:"{{ title }}",
+                       customize: function (xlsx) {
+                           var sheet = xlsx.xl.worksheets['sheet1.xml'];
+
+                           $('row c[r^="C"]', sheet).attr('s', '2');
+                       }
+                   }],
+
+
+               }
+
+           );
+      });
+</script>
+</html>
